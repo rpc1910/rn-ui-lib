@@ -1,31 +1,15 @@
 import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from '@rpc1910/ui';
+import { View } from 'react-native';
+import { ThemeLibProvider, TextField, Button, Text } from '@rpc1910/ui';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <ThemeLibProvider issuer="themeB">
+      <View style={{ flex: 1, justifyContent: 'center', padding: 20 }}>
+        <TextField placeholder="input" />
+        <Button>Click-me</Button>
+        <Text>Olá mundo Text</Text>
+      </View>
+    </ThemeLibProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
