@@ -13,7 +13,10 @@ jobs:
         with:
           node-version: 16.x
       - run: yarn install
-      - run: yarn release
+      - run: |
+          git config --global user.email "rodrigo.passos25@gmail.com"
+          git config --global user.name "Rodrigo Passos"
+          yarn release
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
