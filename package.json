@@ -1,6 +1,7 @@
 {
   "name": "@rpc1910/ui",
   "version": "0.1.0",
+  "private": false,
   "description": "React Native Ui Lib",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -91,7 +92,7 @@
       "tagName": "v${version}"
     },
     "npm": {
-      "publish": true
+      "publish": false
     },
     "github": {
       "release": true
