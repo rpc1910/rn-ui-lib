@@ -7,7 +7,7 @@ import Text from './text';
 const ButtonContainer = styled.TouchableOpacity.attrs({ activeOpacity: 0.8 })`
   background-color: ${({ theme }) => theme.colors.primary};
   padding: 8px 10px;
-  border-radius: 8px;
+  border-radius: 25px;
   align-items: center;
   justify-content: center;
 `;
@@ -19,7 +19,7 @@ type IButtonProps = Omit<TouchableOpacityProps, 'activeOpacity'> & {
 export default function Button({ children, ...rest }: IButtonProps) {
   return (
     <ButtonContainer {...rest}>
-      <Text>{children}</Text>
+      <Text bold>{children}</Text>
     </ButtonContainer>
   );
 }

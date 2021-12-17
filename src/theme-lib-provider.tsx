@@ -1,19 +1,16 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components/native';
-import getThemeByIssuer from './theme';
+import { DefaultTheme, ThemeProvider } from 'styled-components/native';
+import { mergeTheme } from './theme';
 
 type IThemeLibProviderProps = {
   children: any;
-  issuer?: 'themeA' | 'themeB';
+  theme?: DefaultTheme;
 };
 
-function ThemeLibProvider({
-  children,
-  issuer = 'themeA',
-}: IThemeLibProviderProps) {
-  const theme = getThemeByIssuer(issuer);
+function ThemeLibProvider({ children, theme }: IThemeLibProviderProps) {
+  const mergedTheme = mergeTheme(theme);
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={mergedTheme}>{children}</ThemeProvider>;
 }
 
 export default ThemeLibProvider;
